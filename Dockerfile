@@ -1,5 +1,5 @@
 #base image for code
-FROM python:3
+FROM python:3.6
 
 RUN pip install --upgrade pip
 COPY requirements.txt initial_data.csv model.py runmodel.py ./
