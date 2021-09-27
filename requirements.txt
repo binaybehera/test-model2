@@ -5,7 +5,6 @@ click==8.0.1
 convertdate==2.3.2
 cycler==0.10.0
 Cython==0.29.24
-dataclasses==0.8
 decorator==5.1.0
 fbprophet==0.4.post2
 Flask==1.0.2
