@@ -2,6 +2,7 @@
 FROM python:3
 
 RUN pip install --upgrade pip
+COPY requirements.txt initial_data.csv model.py runmodel.py ./
 RUN pip install --requirement ./requirements.txt
 
 # command to execute when image loads
