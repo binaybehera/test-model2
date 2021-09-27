@@ -2,7 +2,7 @@
 FROM python:3
 
 RUN pip install --upgrade pip
-RUN pip install --requirement requirements.txt
+RUN pip install --requirement ./requirements.txt
 
 # command to execute when image loads
 CMD [ "python", "runmodel.py"]
