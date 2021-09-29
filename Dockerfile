@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # command to execute when image loads
 ENTRYPOINT ["python","runmodel.py"]
-CMD ["localhost"]
+CMD ["dataset", "forecast"]
 #CMD [ "python", "runmodel.py"]
 
 # to rm image: docker rmi --force [id]
