@@ -69,7 +69,7 @@ def get_report(name):
 
 # start the app!
 if __name__ == '__main__':
-    #print("printing input param:" + sys.argv[1])
+    print("printing input param:" + sys.argv[1] + " " + sys.argv[2])
     print(get_models())   
     # store forecast name and length for future reference
     data = {"name": "twelve-week", "length": 12} 
