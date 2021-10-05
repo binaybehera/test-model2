@@ -34,7 +34,8 @@ def create_forecast(data):
 
     # save forecast to file
     file_name = data['name']
-    pred.to_csv(file_name, index=False)
+    #pred.to_csv(file_name, index=False)
+    pred.to_csv(r'./{}'.format(file_name), index=False)
     return '', 'Success'
 
 #post actual data to create model score
