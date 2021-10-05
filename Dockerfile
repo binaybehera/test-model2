@@ -11,7 +11,7 @@ RUN python savemodel.py $TRAIN_DATA
 
 # command to execute when image loads
 ENTRYPOINT ["python","runmodel.py"]
-CMD ["dataset", "forecast"]
+CMD ["forecast"]
 #CMD [ "python", "runmodel.py"]
 
 # to rm image: docker rmi --force [id]
