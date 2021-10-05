@@ -2,6 +2,7 @@ from model import predict, save_score_data, get_metrics, train_model
 import os
 import json
 import pickle
+import sys
 #from flask import jsonify
 
 #defining sample forecasts dictionary
@@ -28,11 +29,12 @@ def create_forecast(data):
     loaded_model = pickle.load(open('model.sav', 'rb'))
 
     # create prediction of specified length (in weeks)
+    #pred = predict(1, loaded_model)
     pred = predict(data["length"], loaded_model)
 
     # save forecast to file
     file_name = data['name']
-    pred.to_csv(r'./forecast_{}.csv'.format(file_name), index=False)
+    pred.to_csv(file_name, index=False)
     return '', 'Success'
 
 #post actual data to create model score
@@ -75,8 +77,8 @@ def get_report(name):
 if __name__ == '__main__':
     #train_model('initial_data.csv', ['ds', 'y'])
     #print(get_models())   
-
-    data = {"name": "twelve-week", "length": 12} 
+    forecast = sys.argv[1] 
+    data = {"name": "output.csv", "length": int(forecast)} 
     data1 = {"forecast_name": "twelve-week", "values": [{"date": "2018-10-05", "value":80},{"date": "2018-10-12", "value":90},{"date": "2018-10-19", "value":80},{"date": "2018-10-26", "value":70},{"date": "2018-11-02", "value":60},{"date": "2018-11-09", "value":50},{"date": "2018-11-16", "value":40},{"date": "2018-11-23", "value":30},{"date": "2018-11-30", "value":20},{"date": "2018-12-07", "value":10},{"date": "2018-12-14", "value":20},{"date": "2018-12-21", "value":30}]}
     print(create_forecast(data))
     #post_scores(data1)
