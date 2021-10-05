@@ -14,15 +14,21 @@ import plotly.graph_objs as go
 import plotly.io as pio
 import plotly.tools as tls
 import os
+import pickle
 
 ## Import data
-raw_data_df = pd.read_csv("./initial_data.csv", header = 0, names = ['ds', 'y'], parse_dates = True)
-model = Prophet() # Prophet(yearly_seasonality=True)
-fit = model.fit(raw_data_df)
+def train_model(filename, columns):
+    raw_data_df = pd.read_csv(filename, header = 0, names = columns, parse_dates = True)
+    model = Prophet() # Prophet(yearly_seasonality=True)
+    fit = model.fit(raw_data_df)
+
+    # save the model to disk
+    modelfilename = 'model.sav'
+    pickle.dump(model, open(modelfilename, 'wb'))
 #fig_initial = py.plot([go.Scatter(x=raw_data_df['ds'], y=raw_data_df['y'], name='initial')], filename='/tmp/data/visuals/initial_graph.html', auto_open=False)
 
 # predict function
-def predict(p, fit=fit):
+def predict(p, fit):
     # extend periods for forecast
     future = fit.make_future_dataframe(periods=p, freq = 'W-FRI')
     # forecast
