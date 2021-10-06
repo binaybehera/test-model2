@@ -81,7 +81,7 @@ if __name__ == '__main__':
     #print(get_models())  
     #currentDirectory = os.getcwd()
     #print(currentDirectory)
-    print(sys.argv[1]) 
+    #print(sys.argv[1]) 
     forecast = sys.argv[1] 
     data = {"name": "output.csv", "length": int(forecast)} 
     data1 = {"forecast_name": "twelve-week", "values": [{"date": "2018-10-05", "value":80},{"date": "2018-10-12", "value":90},{"date": "2018-10-19", "value":80},{"date": "2018-10-26", "value":70},{"date": "2018-11-02", "value":60},{"date": "2018-11-09", "value":50},{"date": "2018-11-16", "value":40},{"date": "2018-11-23", "value":30},{"date": "2018-11-30", "value":20},{"date": "2018-12-07", "value":10},{"date": "2018-12-14", "value":20},{"date": "2018-12-21", "value":30}]}
