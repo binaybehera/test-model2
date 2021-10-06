@@ -32,6 +32,7 @@ def create_forecast(data):
     #pred = predict(1, loaded_model)
     pred = predict(data["length"], loaded_model)
 
+    print(pred.to_csv(index=False))
     # save forecast to file
     file_name = data['name']
     #pred.to_csv(file_name, index=False)
@@ -78,11 +79,11 @@ def get_report(name):
 if __name__ == '__main__':
     #train_model('initial_data.csv', ['ds', 'y'])
     #print(get_models())  
-    currentDirectory = os.getcwd()
-    print(currentDirectory) 
+    #currentDirectory = os.getcwd()
+    #print(currentDirectory) 
     forecast = sys.argv[1] 
     data = {"name": "output.csv", "length": int(forecast)} 
     data1 = {"forecast_name": "twelve-week", "values": [{"date": "2018-10-05", "value":80},{"date": "2018-10-12", "value":90},{"date": "2018-10-19", "value":80},{"date": "2018-10-26", "value":70},{"date": "2018-11-02", "value":60},{"date": "2018-11-09", "value":50},{"date": "2018-11-16", "value":40},{"date": "2018-11-23", "value":30},{"date": "2018-11-30", "value":20},{"date": "2018-12-07", "value":10},{"date": "2018-12-14", "value":20},{"date": "2018-12-21", "value":30}]}
-    print(create_forecast(data))
+    create_forecast(data)
     #post_scores(data1)
 
