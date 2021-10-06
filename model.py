@@ -30,7 +30,7 @@ def train_model(filename, columns):
 # predict function
 def predict(p, fit):
     # extend periods for forecast
-    future = fit.make_future_dataframe(periods=p, freq = 'W-FRI')
+    future = fit.make_future_dataframe(periods=p, freq = 'W-FRI', include_history = False)
     # forecast
     forecast = fit.predict(future)
 
